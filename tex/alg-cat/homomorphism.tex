@@ -1,0 +1,45 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%  To create image run: (for Windows use imgconvert)
+%%
+%%  convert -verbose -delay 50 -loop 0 -density 300 -resize 640x480 <name>.pdf <name>.gif
+%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%
+%%  Modified from github.com/thetensor-space/Tenscenery
+%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\documentclass[beamer,tikz,preview]{standalone}
+%\documentclass{beamer}
+
+\setbeamertemplate{navigation symbols}{}
+\usefonttheme{professionalfonts} % using non standard fonts for beamer
+\usepackage{tikz}
+\usepackage{xcolor}
+\usepackage{amssymb}
+\usepackage{amsmath}
+
+\begin{document}
+\begin{frame}
+    \begin{tikzpicture}
+        % Pieces
+        \node (GHZ) at (0, 1.25) {$*:$};
+        \node (W) at (0, 0) {$*:$};
+        \node (U2) at (0.5, 1.25) {$A$};
+        \node (x1) at (1, 1.22) {$\times$};
+        \node (U1) at (1.5, 1.25) {$A$};
+        \node (U0) at (3.5, 1.25) {$A$};
+        \node (V2) at (0.5, 0) {$A$};
+        \node (x2) at (1, -0.03) {$\times$};
+        \node (V1) at (1.5, 0) {$A$};
+        \node (V0) at (3.5, 0) {$A$};
+
+        % Arrows
+        \draw[>->, thick] (U1) -- (U0);
+        \draw[>->, thick] (V1) -- (V0);
+        \draw[->, thick] (U2) -- (V2) node[midway, left] {$\varphi$};
+        \draw[->, thick] (U1) -- (V1) node[midway, left] {$\varphi$};
+        \draw[->, thick] (U0) -- (V0) node[midway, left] {$\varphi$};
+    \end{tikzpicture}
+\end{frame}
+
+\end{document}
