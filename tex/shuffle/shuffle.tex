@@ -75,8 +75,8 @@ cubeperm2/.style args={#1/#2/#3/#4}{code={
 \begin{document}
 \begin{frame}
     \begin{tikzpicture}
-        \pgfmathsetmacro{\u}{0.75}
-        \node (A) at (3,0) {
+        \pgfmathsetmacro{\u}{0.4}
+        \node (A) at (2,0) {
         \begin{tikzpicture}[scale=1]
         \foreach \x in {0, \u, 2*\u, 3*\u} {
             \foreach \y in {0, \u, 2*\u} {
@@ -88,7 +88,7 @@ cubeperm2/.style args={#1/#2/#3/#4}{code={
         \end{tikzpicture}
         };
         
-        \node (B) at (-3,0) {
+        \node (B) at (-2,0) {
         \begin{tikzpicture}[scale=1]
         \foreach \x in {0, \u, 2*\u, 3*\u} {
             \foreach \y in {0, \u, 2*\u} {
@@ -100,7 +100,7 @@ cubeperm2/.style args={#1/#2/#3/#4}{code={
         \end{tikzpicture}
         };
 
-        \node (C) at (0,-4.5) {
+        \node (C) at (0,-2.5) {
         \begin{tikzpicture}[scale=1]
         \foreach \x in {0, \u, 2*\u, 3*\u} {
             \foreach \y in {0, \u, 2*\u} {
@@ -112,8 +112,8 @@ cubeperm2/.style args={#1/#2/#3/#4}{code={
         \end{tikzpicture}
         };
         \draw[very thick,->] (-0.75,0) -- (0.75,0);
-        \draw[very thick,->] (3,-1.75) -- (1.65,-4);
-        \draw[very thick,<-] (-3,-1.75) -- (-1.65,-4);
+        \draw[very thick,->] (1.75,-1) -- (1,-2.5);
+        \draw[very thick,<-] (-1.75,-1) -- (-1,-2.5);
     \end{tikzpicture}
 \end{frame}
 

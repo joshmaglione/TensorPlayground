@@ -91,16 +91,74 @@ cubeG/.style args={#1/#2/#3/#4}{code={
 \node at (0.5*#1,0.5*#2,0.5*#3) {#4};
 }}}
 
+\tikzset{pics/.cd,
+cubeO/.style args={#1/#2/#3/#4}{code={
+\coordinate (O) at (0,0,0);
+\coordinate (A) at (0,#2,0);
+\coordinate (B) at (0,#2,#3);
+\coordinate (C) at (0,0,#3);
+\coordinate (D) at (#1,0,0);
+\coordinate (E) at (#1,#2,0);
+\coordinate (F) at (#1,#2,#3);
+\coordinate (G) at (#1,0,#3);
+\draw[black,fill=black!50] (O) -- (C) -- (G) -- (D) -- cycle;
+\draw[black,fill=black!30] (O) -- (A) -- (E) -- (D) -- cycle;
+\draw[black,fill=black!10] (O) -- (A) -- (B) -- (C) -- cycle;
+\draw[black,fill=orange!90!black!40,opacity=0.7] (D) -- (E) -- (F) -- (G) -- cycle;
+\draw[black,fill=orange!90!black!40,opacity=0.6] (C) -- (B) -- (F) -- (G) -- cycle;
+\draw[black,fill=orange!90!black!40,opacity=0.7] (A) -- (B) -- (F) -- (E) -- cycle;
+\node at (0.5*#1,0.5*#2,0.5*#3) {#4};
+}}}
+
+\tikzset{pics/.cd,
+cubeP/.style args={#1/#2/#3/#4}{code={
+\coordinate (O) at (0,0,0);
+\coordinate (A) at (0,#2,0);
+\coordinate (B) at (0,#2,#3);
+\coordinate (C) at (0,0,#3);
+\coordinate (D) at (#1,0,0);
+\coordinate (E) at (#1,#2,0);
+\coordinate (F) at (#1,#2,#3);
+\coordinate (G) at (#1,0,#3);
+\draw[black,fill=black!50] (O) -- (C) -- (G) -- (D) -- cycle;
+\draw[black,fill=black!30] (O) -- (A) -- (E) -- (D) -- cycle;
+\draw[black,fill=black!10] (O) -- (A) -- (B) -- (C) -- cycle;
+\draw[black,fill=purple!90!black!40,opacity=0.7] (D) -- (E) -- (F) -- (G) -- cycle;
+\draw[black,fill=purple!90!black!40,opacity=0.6] (C) -- (B) -- (F) -- (G) -- cycle;
+\draw[black,fill=purple!90!black!40,opacity=0.7] (A) -- (B) -- (F) -- (E) -- cycle;
+\node at (0.5*#1,0.5*#2,0.5*#3) {#4};
+}}}
+
+\tikzset{pics/.cd,
+cubeY/.style args={#1/#2/#3/#4}{code={
+\coordinate (O) at (0,0,0);
+\coordinate (A) at (0,#2,0);
+\coordinate (B) at (0,#2,#3);
+\coordinate (C) at (0,0,#3);
+\coordinate (D) at (#1,0,0);
+\coordinate (E) at (#1,#2,0);
+\coordinate (F) at (#1,#2,#3);
+\coordinate (G) at (#1,0,#3);
+\draw[black,fill=black!50] (O) -- (C) -- (G) -- (D) -- cycle;
+\draw[black,fill=black!30] (O) -- (A) -- (E) -- (D) -- cycle;
+\draw[black,fill=black!10] (O) -- (A) -- (B) -- (C) -- cycle;
+\draw[black,fill=yellow!80!black!40,opacity=0.7] (D) -- (E) -- (F) -- (G) -- cycle;
+\draw[black,fill=yellow!80!black!40,opacity=0.6] (C) -- (B) -- (F) -- (G) -- cycle;
+\draw[black,fill=yellow!80!black!40,opacity=0.7] (A) -- (B) -- (F) -- (E) -- cycle;
+\node at (0.5*#1,0.5*#2,0.5*#3) {#4};
+}}}
+
 \begin{document}
 \begin{frame}
     \begin{tikzpicture}
-        \pgfmathsetmacro{\u}{0.4}
-        \pgfmathsetmacro{\v}{0.25}
-        \node (A) at (0,0) {
+        \pgfmathsetmacro{\u}{1}
+        \pgfmathsetmacro{\v}{1.5}
+
+        \node (C) at (-7, 0) {
         \begin{tikzpicture}[scale=1]
         \foreach \x in {0, \u, 2*\u, 3*\u} {
-            \foreach \y in {0, \u, 2*\u} {
-                \foreach \z in {0, \u} {
+            \foreach \y in {0, \u, 2*\u, 3*\u, 4*\u, 5*\u} {
+                \foreach \z in {0, \u, 2*\u, 3*\u, 4*\u} {
                     \pic at (\y,\z,\x) {cube={\u/\u/\u/}};
                 }
             }
@@ -108,23 +166,35 @@ cubeG/.style args={#1/#2/#3/#4}{code={
         \end{tikzpicture}
         };
 
-        \node (C) at (-3,-2.25) {
+        \node (C) at (0, 0) {
         \begin{tikzpicture}[scale=1]
-        \foreach \x in {0, \u + \v, 2*\u + 2*\v, 3*\u + 3*\v} {
-            \foreach \y in {0, \u, 2*\u} {
-                \foreach \z in {0, \u} {
+        \foreach \x in {0, \u, 2*\u, 3*\u} {
+            \foreach \y in {0} {
+                \foreach \z in {0, \u, 2*\u, 3*\u, 4*\u} {
                     \pic at (\y,\z,\x) {cubeR={\u/\u/\u/}};
                 }
             }
         }
         \end{tikzpicture}
         };
-        
-        \node (B) at (0,-2.25) {
+
+        \node (C) at (\v, 0) {
         \begin{tikzpicture}[scale=1]
         \foreach \x in {0, \u, 2*\u, 3*\u} {
-            \foreach \y in {0, \u + \v, 2*\u + 2*\v} {
-                \foreach \z in {0, \u} {
+            \foreach \y in {0} {
+                \foreach \z in {0, \u, 2*\u, 3*\u, 4*\u} {
+                    \pic at (\y,\z,\x) {cubeB={\u/\u/\u/}};
+                }
+            }
+        }
+        \end{tikzpicture}
+        };
+
+        \node (C) at (2*\v, 0) {
+        \begin{tikzpicture}[scale=1]
+        \foreach \x in {0, \u, 2*\u, 3*\u} {
+            \foreach \y in {0} {
+                \foreach \z in {0, \u, 2*\u, 3*\u, 4*\u} {
                     \pic at (\y,\z,\x) {cubeG={\u/\u/\u/}};
                 }
             }
@@ -132,17 +202,42 @@ cubeG/.style args={#1/#2/#3/#4}{code={
         \end{tikzpicture}
         };
 
-        \node (D) at (3,-2.25) {
+        \node (C) at (3*\v, 0) {
         \begin{tikzpicture}[scale=1]
         \foreach \x in {0, \u, 2*\u, 3*\u} {
-            \foreach \y in {0, \u, 2*\u} {
-                \foreach \z in {0, \u + \v} {
-                    \pic at (\y,\z,\x) {cubeB={\u/\u/\u/}};
+            \foreach \y in {0} {
+                \foreach \z in {0, \u, 2*\u, 3*\u, 4*\u} {
+                    \pic at (\y,\z,\x) {cubeO={\u/\u/\u/}};
                 }
             }
         }
         \end{tikzpicture}
         };
+
+        \node (C) at (4*\v, 0) {
+        \begin{tikzpicture}[scale=1]
+        \foreach \x in {0, \u, 2*\u, 3*\u} {
+            \foreach \y in {0} {
+                \foreach \z in {0, \u, 2*\u, 3*\u, 4*\u} {
+                    \pic at (\y,\z,\x) {cubeP={\u/\u/\u/}};
+                }
+            }
+        }
+        \end{tikzpicture}
+        };
+
+        \node (C) at (5*\v, 0) {
+        \begin{tikzpicture}[scale=1]
+        \foreach \x in {0, \u, 2*\u, 3*\u} {
+            \foreach \y in {0} {
+                \foreach \z in {0, \u, 2*\u, 3*\u, 4*\u} {
+                    \pic at (\y,\z,\x) {cubeY={\u/\u/\u/}};
+                }
+            }
+        }
+        \end{tikzpicture}
+        };
+
         \end{tikzpicture}
  \end{frame}
 
