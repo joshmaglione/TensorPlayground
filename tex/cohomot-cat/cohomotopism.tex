@@ -22,8 +22,8 @@
 \begin{frame}
     \begin{tikzpicture}
         % Pieces
-        \node (GHZ) at (0, 1.25) {$GHZ:$};
-        \node (W) at (0, 0) {$W:$};
+        \node (W) at (0.25, 1.25) {$W:$};
+        \node (GHZ) at (0, 0) {$GHZ:$};
         \node (U2) at (1, 1.25) {$\mathbb{C}^2$};
         \node (x1) at (1.5, 1.22) {$\times$};
         \node (U1) at (2, 1.25) {$\mathbb{C}^2$};
@@ -38,7 +38,7 @@
         \draw[>->, thick] (V1) -- (V0);
         \draw[->, thick] (U2) -- (V2) node[midway, left] {$X$};
         \draw[->, thick] (U1) -- (V1) node[midway, left] {$Y$};
-        \draw[->, thick] (U0) -- (V0) node[midway, left] {$Z$};
+        \draw[<-, thick] (U0) -- (V0) node[midway, left] {$Z$};
     \end{tikzpicture}
 \end{frame}
 
