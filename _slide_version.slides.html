@@ -10,7 +10,7 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
 
 
-<title>TensorPlayground slides</title>
+<title>_slide_version slides</title>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
@@ -13295,13 +13295,13 @@ a.anchor-link {
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Flexible-data-structure-for-tensors">Flexible data structure for tensors<a class="anchor-link" href="#Flexible-data-structure-for-tensors">&#182;</a></h2><hr>
-<p><strong>Goal:</strong> Want flexible definition for tensors.</p>
+<h2 id="Flexible-data-structure-for-tensors">Flexible data structure for tensors<a class="anchor-link" href="#Flexible-data-structure-for-tensors">&#182;</a></h2><p><strong>Goal:</strong> Want flexible definition for tensors.</p>
 <p><strong>Questions</strong>: Is a tensor more than just...</p>
 <ol>
 <li>a high-dimensional grid? </li>
 <li>a multilinear map?</li>
 </ol>
+<p>How do the questions we want to answer motivate a data structure?</p>
 
 </div>
 </div>
@@ -13309,7 +13309,7 @@ a.anchor-link {
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Examples-require-more-context">Examples require more context<a class="anchor-link" href="#Examples-require-more-context">&#182;</a></h2><ol>
+<h2 id="Examples-require-context">Examples require context<a class="anchor-link" href="#Examples-require-context">&#182;</a></h2><ol>
 <li>$b$ bilinear form of $V$. Interpret:</li>
 </ol>
 $$
@@ -13347,8 +13347,14 @@ $$
 <div class="text_cell_render border-box-sizing rendered_html">
 <h2 id="Tensors-in-$\textsf{TensorSpace}$-are-framed">Tensors in $\textsf{TensorSpace}$ are <em>framed</em><a class="anchor-link" href="#Tensors-in-$\textsf{TensorSpace}$-are-framed">&#182;</a></h2><p>We require tensors to have three things:</p>
 <ol>
-<li><strong>frame</strong>: $(U_0, \ldots, U_n),$</li>
-<li><strong>function</strong>: $U_n\times \cdots \times U_1\rightarrowtail U_0,$</li>
+<li><strong>frame</strong>: 
+$$
+(U_0, ..., U_n),
+$$</li>
+<li><strong>function</strong>: 
+$$
+U_n\times ... \times U_1\rightarrowtail U_0,
+$$</li>
 <li><strong>category</strong>*.</li>
 </ol>
 
@@ -13374,8 +13380,14 @@ $$
 \end{aligned}
 $$<p>We have two structures we define:</p>
 <ol>
-<li><strong>frame</strong> $=(\text{M}_2(\mathbb{Q}),\; \text{M}_2(\mathbb{Q}),\; \text{M}_2(\mathbb{Q}))$,</li>
-<li><strong>function</strong> $=(A, B)\mapsto AB$.</li>
+<li><strong>frame</strong> 
+$$
+(\text{M}_2(\mathbb{Q}),\; \text{M}_2(\mathbb{Q}),\; \text{M}_2(\mathbb{Q})),
+$$</li>
+<li><strong>function</strong> 
+$$
+(A, B)\mapsto AB.
+$$</li>
 </ol>
 
 </div>
@@ -14497,7 +14509,7 @@ Dimension(J_GHZ), Dimension(J_W);
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Because dimensions of $J(GHZ)$ is different from $J(W)$ these states are <strong>inequivalent</strong>.</p>
+<p>Because dimension of $J(GHZ)$ is different from $J(W)$ these states are <strong>inequivalent</strong>.</p>
 <p>With a little work, one shows that 
 $$
 \begin{aligned}
@@ -14630,7 +14642,7 @@ $$<p>We need to solve a simultaneous system of Sylvester-like equations.</p>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Naively, this requires $O(d^8)$ field operations for a $(d\times d\times d)$-grid.</p>
+<p>Naively, this requires $O(d^7)$ field operations for a $(d\times d\times d)$-grid.</p>
 <p>Generally, construct a basis of kernel of a $(d_0\cdots d_n) \times (d_0^2 +\cdots + d_n^2)$-matrix.</p>
 
 </div>
@@ -14671,10 +14683,16 @@ $$<p>We need to solve a simultaneous system of Sylvester-like equations.</p>
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>A tensor space $T$ is a $K$-vector space with</p>
 <ol>
-<li>a frame $(U_0, \ldots, U_n)$,</li>
-<li>an interpreter map $\langle \cdot | : T\rightarrow \left( U_n\times \cdots \times U_1\rightarrowtail U_0\right)$,</li>
+<li>a frame 
+$$
+(U_0, \ldots, U_n),
+$$</li>
+<li>an interpreter map 
+$$
+\langle \cdot | : T\rightarrow \left( U_n\times \cdots \times U_1\rightarrowtail U_0\right),
+$$</li>
 <li>a category,</li>
-<li>a ($K$-)basis.</li>
+<li>a basis.</li>
 </ol>
 
 </div>
@@ -14710,7 +14728,7 @@ $$
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><img src="images/homotopism.png" alt="homotopism category"></p>
+<p><img src="images/cohomotopism.png" alt="homotopism category"></p>
 
 </div>
 </div>
@@ -15096,7 +15114,7 @@ Dimension(D);
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>The densor subspace of $t$ is with $\textsf{Densor}$.</p>
+<p>The densor subspace of $t$ is computed using $\textsf{Densor}$.</p>
 
 </div>
 </div>
@@ -15384,8 +15402,7 @@ $$</p>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Open:-Extend-this-to-general-tensors-and-implement-it."><em>Open</em>: Extend this to general tensors and implement it.<a class="anchor-link" href="#Open:-Extend-this-to-general-tensors-and-implement-it.">&#182;</a></h3><p><strong>Speculation</strong>: the same technology used for the Sylvester-like system should yield improvements here.</p>
-
+<h3 id="Open:-Does-a-similar-improvement-apply-for-these-equations-as-well?-What-is-the-resulting-complexity?"><em>Open</em>: Does a similar improvement apply for these equations as well? What is the resulting complexity?<a class="anchor-link" href="#Open:-Does-a-similar-improvement-apply-for-these-equations-as-well?-What-is-the-resulting-complexity?">&#182;</a></h3>
 </div>
 </div>
 </div></div></section></section><section><section>
